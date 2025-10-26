@@ -33,28 +33,41 @@ Type: One-to-many (one TSI date applies to many courier shipments that day)
 
 ERD
 ## Entity Relationship Diagram (ERD)
+![ERD Diagram](reports/images/courier_service_erd.png)
 
 ```mermaid
 erDiagram
-  FREIGHT_TSI ||--o{ COURIER_DATA : "observation_date = Date"
+    CUSTOMER ||--o{ COURIER_DATA : "customer_ID"
+    PRODUCT ||--o{ COURIER_DATA : "product_ID"
+    FREIGHT_TSI ||--o{ COURIER_DATA : "observation_date"
 
-  FREIGHT_TSI {
-    DATE observation_date PK
-    REAL TSIFRGHT
-  }
+    CUSTOMER {
+        INT customer_ID PK
+        TEXT gender
+        INT customer_care_calls
+        INT customer_rating
+    }
 
-  COURIER_DATA {
-    INT  ID PK
-    DATE Date FK
-    TEXT Warehouse_block
-    TEXT Mode_of_Shipment
-    INT  Customer_care_calls
-    INT  Customer_rating
-    INT  Cost_of_the_Product
-    INT  Prior_purchases
-    TEXT Product_importance
-    TEXT Gender
-    INT  Discount_offered
-    INT  Weight_in_gms
-    INT  Late_Indicator
-  }}
+    PRODUCT {
+        INT product_ID PK
+        TEXT product_importance
+        INT cost_of_the_product
+        INT weight_in_gms
+        INT prior_purchases
+    }
+
+    FREIGHT_TSI {
+        DATE observation_date PK
+        REAL TSIFRGHT
+    }
+
+    COURIER_DATA {
+        INT ID PK
+        DATE observation_date FK
+        INT customer_ID FK
+        INT product_ID FK
+        TEXT warehouse_block
+        TEXT mode_of_shipment
+        INT discount_offered
+        INT late_indicator
+    }
