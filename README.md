@@ -1,9 +1,9 @@
 ## Comparing Courier Service Performance in the U.S.
-## Dataset Source
 
-This project combines two datasets to analyze courier performance across multiple shipping modes and companies.
+This project analyzes courier shipment data to evaluate delivery performance, customer sastifaction, and shipping companies.
+the analysis uses **SQL and Python** to explore how shipping mode, cost, and company service quality relate to on-time performance.     
 
-
+## Data Sources
 1. **[Logistics Regression Analysis Dataset](https://www.kaggle.com/datasets/prachi13/customer-analytics)**  
    *Source:* Kaggle (by Prachi13, for educational use)  
    *Contains:* shipment-level data including mode of shipment, product cost, weight, customer rating, and delivery timeliness.
@@ -11,6 +11,8 @@ This project combines two datasets to analyze courier performance across multipl
 2. **[courier_companies.csv](data/courier_companies.csv)**  
    *Source:* Custom dataset created to simulate major U.S. courier companies such as FedEx, UPS, USPS, DHL, and Amazon Logistics.  
    *Contains:* company-level metrics including shipping mode, average cost, delivery days, customer rating, and market share.
+
+3. **Freight_tsi.csv** - Freight Transportation Services Index from U.S. Bereau of Transportation Statistics  
 
    ### Why These Datasets Were Combined 
 
@@ -150,3 +152,19 @@ erDiagram
         INT discount_offered
         INT late_indicator
     }
+
+## Key Steps 
+1. Loaded and cleaned raw data in Python 
+2. Build a normalized SQLite database with 4 releate tables 
+3. Designed an ERD diagram
+4. Ran SQL queries to compare efficiency and reliability 
+5. Visualized performance trends in Python 
+    
+## Tools Used 
+- Ptthon (Pandas, SQLite, Matphotlib, Seaborn)
+-SQL
+-Jupitor Notebook
+-GitHub for version control 
+
+## Author 
+J. W. Blevins
