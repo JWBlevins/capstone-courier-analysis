@@ -106,52 +106,52 @@ It connects to the **courier_data** table through the 'company_ID' field, allowi
 
 ```mermaid
 erDiagram
-  CUSTOMER ||--o{ COURIER_DATA : "customer_ID"
-  PRODUCT ||--o{ COURIER_DATA : "product_ID"
-  COURIER_COMPANIES ||--o{ COURIER_DATA : "company_ID"
-  FREIGHT_TSI ||--o{ COURIER_DATA : "observation_date"
+    CUSTOMER ||--o{ COURIER_DATA : "customer_ID"
+    PRODUCT  ||--o{ COURIER_DATA : "product_ID"
+    COURIER_COMPANIES ||--o{ COURIER_DATA : "company_ID"
+    FREIGHT_TSI ||--o{ COURIER_DATA : "Observation_date"
 
-  CUSTOMER {
-    INT customer_ID PK
-    TEXT gender
-    INT customer_care_calls
-    INT customer_rating
-  }
+    CUSTOMER {
+        INT customer_ID PK
+        TEXT gender
+        INT customer_care_calls
+        INT customer_rating
+    }
 
-  PRODUCT {
-    INT product_ID PK
-    TEXT product_importance
-    INT cost_of_the_product
-    INT weight_in_gms
-    INT prior_purchases
-  }
+    PRODUCT {
+        INT product_ID PK
+        TEXT product_importance
+        INT cost_of_the_product
+        INT weight_in_gms
+        INT prior_purchases
+    }
 
-  FREIGHT_TSI {
-    DATE observation_date PK
-    REAL TSIFRGHT
-  }
+    FREIGHT_TSI {
+        DATE observation_date PK
+        REAL TSIFRGHT
+    }
 
-  COURIER_COMPANIES {
-    INT company_ID PK
-    TEXT company_name
-    TEXT mode
-    INT avg_cost
-    FLOAT avg_delivery_days
-    FLOAT customer_rating
-    FLOAT market_share
-  }
+    COURIER_COMPANIES {
+        INT company_ID PK
+        TEXT company_name
+        TEXT mode
+        INT avg_cost
+        FLOAT avg_delivery_days
+        FLOAT customer_rating
+        FLOAT market_share
+    }
 
-  COURIER_DATA {
-    INT ID PK
-    DATE observation_date FK
-    INT customer_ID FK
-    INT product_ID FK
-    INT company_ID FK
-    TEXT warehouse_block
-    TEXT mode_of_shipment
-    INT discount_offered
-    INT late_indicator
-  }
+    COURIER_DATA {
+        INT ID PK
+        DATE observation_date FK
+        INT customer_ID FK
+        INT product_ID FK
+        INT company_ID FK
+        TEXT warehouse_block
+        TEXT mode_of_shipment
+        INT discount_offered
+        INT late_indicator
+    }
 
 ## Key Steps 
 1. Loaded and cleaned raw data in Python 
