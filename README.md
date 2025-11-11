@@ -107,9 +107,9 @@ It connects to the **courier_data** table through the 'company_ID' field, allowi
 ```mermaid
 erDiagram
     CUSTOMER ||--o{ COURIER_DATA : "customer_ID"
-    PRODUCT  ||--o{ COURIER_DATA : "product_ID"
+    PRODUCT ||--o{ COURIER_DATA : "product_ID"
     COURIER_COMPANIES ||--o{ COURIER_DATA : "company_ID"
-    FREIGHT_TSI ||--o{ COURIER_DATA : "Observation_date"
+    FREIGHT_TSI ||--o{ COURIER_DATA : "observation_date"
 
     CUSTOMER {
         INT customer_ID PK
@@ -147,12 +147,12 @@ erDiagram
         INT customer_ID FK
         INT product_ID FK
         INT company_ID FK
-        TEXT warehouse_block
         TEXT mode_of_shipment
+        TEXT warehouse_block
         INT discount_offered
         INT late_indicator
     }
-
+```
 ## Key Steps 
 1. Loaded and cleaned raw data in Python 
 2. Build a normalized SQLite database with 4 releate tables 
